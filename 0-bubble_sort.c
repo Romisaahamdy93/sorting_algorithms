@@ -7,23 +7,22 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-size_t i, j;
-int temp;
-if (!array || !size)
+int i, temp = 0, j = 0, swapped = 1;
+
+if (!array || size < 2)
 return;
-i = 0;
-while (i < size)
+j = size - 1;
+for (i = 0; i < j; ++i)
 {
-for (j = 0; j < size - i; j++)
+if (array[i] > array[i + 1])
 {
-if (array[j] > array[j + 1])
-{
-temp = array[j];
-array[j] = array[j + 1];
-array[j + 1] = temp;
+temp = array[i];
+array[i] = array[i + 1];
+array[i + 1] = temp;
+swapped = 1;
 print_array(array, size);
 }
-}
-i++;
+if (swapped == 1 && i == j - 1)
+i = -1, swapped = 0, --j;
 }
 }
