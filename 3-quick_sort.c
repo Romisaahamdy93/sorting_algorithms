@@ -41,20 +41,20 @@ return (i + 1);
 }
 
 /**
- * quick_sort_recursive - Recursive function to perform quicksort.
+ * quick_sort_rec - Recursive function to perform quicksort.
  * @array: Array to be sorted.
  * @low: Index of the low boundary of the partition.
  * @high: Index of the high boundary of the partition.
  * @size: Size of the array.
  */
-void quick_sort_recursive(int *array, int low, int high, size_t size)
+void quick_sort_rec(int *array, int low, int high, size_t size)
 {
 if (low < high)
 {
 int pivot_index = lomuto_partition(array, low, high, size);
 
-quick_sort_recursive(array, low, pivot_index - 1, size);
-quick_sort_recursive(array, pivot_index + 1, high, size);
+quick_sort_rec(array, low, pivot_index - 1, size);
+quick_sort_rec(array, pivot_index + 1, high, size);
 }
 }
 
@@ -66,5 +66,5 @@ quick_sort_recursive(array, pivot_index + 1, high, size);
 void quick_sort(int *array, size_t size)
 {
 if (array && size > 1)
-quick_sort_recursive(array, 0, size - 1, size);
+quick_sort_rec(array, 0, size - 1, size);
 }
