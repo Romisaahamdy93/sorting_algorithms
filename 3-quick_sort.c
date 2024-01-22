@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stddef.h>
 
 /**
  * lomuto_partition - Lomuto partition scheme for QuickSort.
